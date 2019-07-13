@@ -1,0 +1,28 @@
+server:
+  port: 8080
+  connection-timeout: 5000ms
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${MYSQL_HOST:123.206.82.29}:${MYSQL_PORT:3306}/bilibili?characterEncoding=utf8&useSSL=false
+    username: root
+    password: ${MYSQL_ROOT_PASSWORD:mysqlpassword123}
+
+  thymeleaf:
+    cache: false
+    prefix: classpath:/templates/
+    suffix: .html
+    encoding: UTF-8
+    mode: HTML5
+    servlet:
+      content-type: text/html
+
+
+
+mybatis-plus:
+  mapper-locations: classpath*:mapper/*/*Mapper.xml
+  ##mybatis-plus type-aliases ÎÄ¼þµØÖ·
+  type-aliases-package: com.somliy.anime.entity
+  global-config:
+     sql-parser-cache: true
